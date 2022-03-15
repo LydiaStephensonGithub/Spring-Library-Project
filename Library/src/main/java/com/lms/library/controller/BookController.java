@@ -1,5 +1,7 @@
 package com.lms.library.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,5 +32,10 @@ public class BookController {
 	@GetMapping("/readById/{id}")
 	public ResponseEntity<Book> readById(@PathVariable long id) {
 		return new ResponseEntity<Book>(this.service.readById(id), HttpStatus.OK);
+	}
+	
+	@GetMapping("/readAll")
+	public ResponseEntity<List<Book>> readAll() {
+		return new ResponseEntity<List<Book>>(this.service.readAll(), HttpStatus.OK);
 	}
 }
