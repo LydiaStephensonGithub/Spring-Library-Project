@@ -1,6 +1,8 @@
 package com.lms.library.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,4 +85,23 @@ public class BookServiceTest {
 		Mockito.verify(this.repo, Mockito.times(1)).saveAndFlush(output);
 	}
 	
+	@Test
+	public void deleteTrueTest() {
+		Mockito.when(this.repo.existsById(Mockito.anyLong())).thenReturn(false);
+		
+		assertTrue(this.service.delete(Mockito.anyLong()));
+		
+		Mockito.verify(this.repo, Mockito.times(1)).deleteById(Mockito.anyLong());
+		Mockito.verify(this.repo, Mockito.times(1)).existsById(Mockito.anyLong());
+	}
+	
+	@Test
+	public void deleteFalseTest() {
+		Mockito.when(this.repo.existsById(Mockito.anyLong())).thenReturn(true);
+		
+		assertFalse(this.service.delete(Mockito.anyLong()));
+		
+		Mockito.verify(this.repo, Mockito.times(1)).deleteById(Mockito.anyLong());
+		Mockito.verify(this.repo, Mockito.times(1)).existsById(Mockito.anyLong());
+	}
 }

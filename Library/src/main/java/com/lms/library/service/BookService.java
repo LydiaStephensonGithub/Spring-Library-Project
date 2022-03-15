@@ -45,9 +45,8 @@ public class BookService implements ServiceMethods<Book> {
 	}
 
 	@Override
-	public boolean delete(long id) {
-		// TODO Auto-generated method stub
-		return false;
+	public Boolean delete(long id) {
+		this.repo.deleteById(id);
+		return !this.repo.existsById(id);
 	}
-	
 }

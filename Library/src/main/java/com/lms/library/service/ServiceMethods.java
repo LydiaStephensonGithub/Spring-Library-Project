@@ -17,6 +17,6 @@ public interface ServiceMethods<T> {
 	T update(long id, T t);
 	
 	//delete
-	boolean delete(long id);
+	Boolean delete(long id);
 	
 }

@@ -1,5 +1,6 @@
 package com.lms.library.controller;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -92,6 +93,15 @@ public class BookControllerTest {
 		ResultMatcher checkBody = content().json(testBookAsJson);
 		
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void testDelete() throws Exception {
+		RequestBuilder req = delete("/book/delete/1");
+		
+		ResultMatcher checkStatus = status().isNoContent();
+		
+		this.mvc.perform(req).andExpect(checkStatus);
 	}
 	
 }
