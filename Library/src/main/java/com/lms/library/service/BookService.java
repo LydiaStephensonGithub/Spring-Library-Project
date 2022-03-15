@@ -30,8 +30,7 @@ public class BookService implements ServiceMethods<Book> {
 
 	@Override
 	public List<Book> readAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.repo.findAll();
 	}
 
 	@Override
