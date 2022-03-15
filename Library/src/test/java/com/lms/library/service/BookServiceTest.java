@@ -2,6 +2,8 @@ package com.lms.library.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Optional;
+
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,18 @@ public class BookServiceTest {
 		assertEquals(output, this.service.create(input));
 		
 		Mockito.verify(this.repo, Mockito.times(1)).save(input);
+	}
+	
+	@Test
+	public void readByIdTest() {
+		Optional<Book> Optionaloutput = Optional.of(new Book(1L, "The Hobbit", "Tolkien", "J.R.R.", "978-0-261102-21-7", "FAN"));
+		Book output = new Book(1L, "The Hobbit", "Tolkien", "J.R.R.", "978-0-261102-21-7", "FAN");
+		
+		Mockito.when(this.repo.findById(Mockito.anyLong())).thenReturn(Optionaloutput);
+		
+		assertEquals(output, this.service.readById(Mockito.anyLong()));
+		
+		Mockito.verify(this.repo, Mockito.times(1)).findById(Mockito.anyLong());
 	}
 	
 }

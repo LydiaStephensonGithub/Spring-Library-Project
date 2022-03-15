@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.lms.library.entity.Book;
+import com.lms.library.exceptions.BookNotFoundException;
 import com.lms.library.repo.BookRepo;
 
 @Service
@@ -23,8 +24,8 @@ public class BookService implements ServiceMethods<Book> {
 
 	@Override
 	public Book readById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Book found = this.repo.findById(id).orElseThrow(BookNotFoundException::new);
+		return found;
 	}
 
 	@Override
