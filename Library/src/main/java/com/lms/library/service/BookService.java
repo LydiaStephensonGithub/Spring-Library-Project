@@ -46,8 +46,9 @@ public class BookService implements ServiceMethods<Book> {
 
 	@Override
 	public boolean delete(long id) {
-		// TODO Auto-generated method stub
-		return false;
+		Book found = this.repo.findById(id).orElseThrow(BookNotFoundException::new);
+		this.repo.deleteById(found.getId());
+		return !this.repo.existsById(id);
 	}
 	
 }
