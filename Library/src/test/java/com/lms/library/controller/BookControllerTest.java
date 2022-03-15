@@ -5,6 +5,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -58,6 +61,21 @@ public class BookControllerTest {
 		
 		ResultMatcher checkStatus = status().isOk();
 		ResultMatcher checkBody = content().json(testBookAsJson);
+		
+		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void testReadAll() throws Exception {
+		RequestBuilder req = get("/book/readAll");
+		
+		List<Book> testList = new ArrayList<>();
+		Book testBook = new Book(1, "The Hobbit", "Tolkien", "J.R.R.", "978-0-261102-21-7", "FAN");
+		testList.add(testBook);
+		String testListAsJson = this.mapper.writeValueAsString(testList);
+		
+		ResultMatcher checkStatus = status().isOk();
+		ResultMatcher checkBody = content().json(testListAsJson);
 		
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
 	}

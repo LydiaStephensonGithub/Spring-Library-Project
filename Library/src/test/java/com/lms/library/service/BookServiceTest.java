@@ -2,6 +2,8 @@ package com.lms.library.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
@@ -46,6 +48,19 @@ public class BookServiceTest {
 		assertEquals(output, this.service.readById(Mockito.anyLong()));
 		
 		Mockito.verify(this.repo, Mockito.times(1)).findById(Mockito.anyLong());
+	}
+	
+	@Test
+	public void readAllTest() {
+		List<Book> outputList = new ArrayList<>();
+		Book output = new Book(1L, "The Hobbit", "Tolkien", "J.R.R.", "978-0-261102-21-7", "FAN");
+		outputList.add(output);
+		
+		Mockito.when(this.repo.findAll()).thenReturn(outputList);
+		
+		assertEquals(outputList, this.service.readAll());
+		
+		Mockito.verify(this.repo, Mockito.times(1)).findAll();
 	}
 	
 }
