@@ -1,5 +1,6 @@
 package com.lms.library.controller;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -44,6 +45,19 @@ public class BookControllerTest {
 		
 		ResultMatcher checkStatus = status().isCreated();
 		ResultMatcher checkBody = content().json(testSavedBookAsJson);
+		
+		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void testReadById() throws Exception {
+		RequestBuilder req = get("/book/readById/1");
+		
+		Book testBook = new Book(1, "The Hobbit", "Tolkien", "J.R.R.", "978-0-261102-21-7", "FAN");
+		String testBookAsJson = this.mapper.writeValueAsString(testBook);
+		
+		ResultMatcher checkStatus = status().isOk();
+		ResultMatcher checkBody = content().json(testBookAsJson);
 		
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
 	}
