@@ -2,6 +2,7 @@ package com.lms.library.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -76,6 +77,19 @@ public class BookControllerTest {
 		
 		ResultMatcher checkStatus = status().isOk();
 		ResultMatcher checkBody = content().json(testListAsJson);
+		
+		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void testUpdate() throws Exception {
+		Book testBook = new Book(1, "The Hobbit", "Tolkien", "John", "978-0-261102-21-7", "FAN");
+		String testBookAsJson = this.mapper.writeValueAsString(testBook);
+		
+		RequestBuilder req = put("/book/update/1").content(testBookAsJson).contentType(MediaType.APPLICATION_JSON);
+		
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(testBookAsJson);
 		
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
 	}
