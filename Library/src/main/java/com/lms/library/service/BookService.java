@@ -18,8 +18,7 @@ public class BookService implements ServiceMethods<Book> {
 
 	@Override
 	public Book create(Book t) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.repo.save(t);
 	}
 
 	@Override
