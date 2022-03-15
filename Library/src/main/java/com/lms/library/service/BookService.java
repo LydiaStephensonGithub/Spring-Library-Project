@@ -13,7 +13,7 @@ public class BookService implements ServiceMethods<Book> {
 	private BookRepo repo;
 	
 	public BookService(BookRepo repo) {
-		
+		this.repo = repo;
 	}
 
 	@Override
