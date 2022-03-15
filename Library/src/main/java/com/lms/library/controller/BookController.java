@@ -48,7 +48,6 @@ public class BookController {
 	
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Boolean> delete(@PathVariable long id) {
-		return (this.service.delete(id)) ? new ResponseEntity<Boolean>(HttpStatus.NO_CONTENT) :
-			new ResponseEntity<Boolean>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<Boolean>(this.service.delete(id), HttpStatus.NO_CONTENT);
 	}
 }
