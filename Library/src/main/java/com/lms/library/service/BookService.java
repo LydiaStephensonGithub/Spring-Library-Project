@@ -35,8 +35,13 @@ public class BookService implements ServiceMethods<Book> {
 
 	@Override
 	public Book update(long id, Book t) {
-		// TODO Auto-generated method stub
-		return null;
+		Book found = this.repo.findById(id).orElseThrow(BookNotFoundException::new);
+		found.setTitle(t.getTitle());
+		found.setFirstName(t.getFirstName());
+		found.setLastName(t.getLastName());
+		found.setiSBN(t.getiSBN());
+		found.setCategory(t.getCategory());
+		return this.repo.saveAndFlush(found);
 	}
 
 	@Override

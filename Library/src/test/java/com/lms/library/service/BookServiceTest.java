@@ -40,10 +40,10 @@ public class BookServiceTest {
 	
 	@Test
 	public void readByIdTest() {
-		Optional<Book> Optionaloutput = Optional.of(new Book(1L, "The Hobbit", "Tolkien", "J.R.R.", "978-0-261102-21-7", "FAN"));
+		Optional<Book> optionalOutput = Optional.of(new Book(1L, "The Hobbit", "Tolkien", "J.R.R.", "978-0-261102-21-7", "FAN"));
 		Book output = new Book(1L, "The Hobbit", "Tolkien", "J.R.R.", "978-0-261102-21-7", "FAN");
 		
-		Mockito.when(this.repo.findById(Mockito.anyLong())).thenReturn(Optionaloutput);
+		Mockito.when(this.repo.findById(Mockito.anyLong())).thenReturn(optionalOutput);
 		
 		assertEquals(output, this.service.readById(Mockito.anyLong()));
 		
@@ -61,6 +61,26 @@ public class BookServiceTest {
 		assertEquals(outputList, this.service.readAll());
 		
 		Mockito.verify(this.repo, Mockito.times(1)).findAll();
+	}
+	
+	@Test
+	public void updateTest() {
+		Optional<Book> optionalOutput = Optional.of(new Book(1L, "The Hobbit", "Tolkien", "J.R.R.", "978-0-261102-21-7", "FAN"));
+		Book output = new Book(1L, "The Hobbit", "Tolkien", "J.R.R.", "978-0-261102-21-7", "FAN");
+		
+		Mockito.when(this.repo.findById(Mockito.anyLong())).thenReturn(optionalOutput);
+		
+		assertEquals(output, this.service.readById(Mockito.anyLong()));
+		
+		Mockito.verify(this.repo, Mockito.times(1)).findById(Mockito.anyLong());
+		
+		Book updatedOutput = new Book(1L, "The Hobbit", "Tolkien", "J.R.R.", "978-0-261102-21-7", "FAN");
+		
+		Mockito.when(this.repo.saveAndFlush(output)).thenReturn(updatedOutput);
+		
+		assertEquals(updatedOutput, this.service.update(1L, updatedOutput));
+		
+		Mockito.verify(this.repo, Mockito.times(1)).saveAndFlush(output);
 	}
 	
 }
