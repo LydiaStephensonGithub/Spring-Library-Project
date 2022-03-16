@@ -49,4 +49,8 @@ public class BookService implements ServiceMethods<Book> {
 		this.repo.deleteById(id);
 		return !this.repo.existsById(id);
 	}
+	
+	public List<Book> findByAuthor(String lastName) {
+		return this.repo.findByAuthor(lastName);
+	}
 }
