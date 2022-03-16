@@ -18,4 +18,7 @@ public interface BookRepo extends JpaRepository<Book, Long> {
 	//query to find all the books in the same category
 	@Query(value = "SELECT * FROM book WHERE category = ?1 ORDER BY title", nativeQuery = true)
 	List<Book> findByCategory(String category);
+	
+	//query to count books by ISBN to show how many copies the library has
+	long countByiSBN(String iSBN);
 }
