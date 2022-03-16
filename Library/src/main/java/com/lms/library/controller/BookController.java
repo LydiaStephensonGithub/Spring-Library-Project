@@ -55,4 +55,9 @@ public class BookController {
 	public ResponseEntity<List<Book>> findByAuthor(@PathVariable String lastName) {
 		return new ResponseEntity<List<Book>>(this.service.findByAuthor(lastName), HttpStatus.OK);
 	}
+	
+	@GetMapping("/findByCategory/{category}")
+	public ResponseEntity<List<Book>> findByCategory(@PathVariable String category) {
+		return new ResponseEntity<List<Book>>(this.service.findByCategory(category), HttpStatus.OK);
+	}
 }
