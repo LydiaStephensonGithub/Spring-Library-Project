@@ -65,4 +65,10 @@ public class BookController {
 	public ResponseEntity<Long> countByIsbn(@PathVariable String iSBN) {
 		return new ResponseEntity<Long>(this.service.countByIsbn(iSBN), HttpStatus.OK);
 	}
+	
+	@GetMapping("/count")
+	public ResponseEntity<Long> count() {
+		return new ResponseEntity<Long>(this.service.count(), HttpStatus.OK);
+	}
+
 }
