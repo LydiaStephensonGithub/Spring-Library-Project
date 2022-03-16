@@ -20,7 +20,7 @@ import com.lms.library.repo.BookRepo;
 
 @ActiveProfiles("test")
 @SpringBootTest
-public class BookServiceTest {
+public class BookServiceUnitTest {
 
 	@Autowired
 	private BookService service;

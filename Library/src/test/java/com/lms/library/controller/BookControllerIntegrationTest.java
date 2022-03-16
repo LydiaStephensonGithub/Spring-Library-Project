@@ -31,7 +31,7 @@ import com.lms.library.entity.Book;
 @ActiveProfiles("test")
 @Sql(executionPhase = ExecutionPhase.BEFORE_TEST_METHOD, scripts = {"classpath:book-schema.sql", "classpath:book-data.sql"})
 
-public class BookControllerTest {
+public class BookControllerIntegrationTest {
 	
 	@Autowired
 	private MockMvc mvc;
