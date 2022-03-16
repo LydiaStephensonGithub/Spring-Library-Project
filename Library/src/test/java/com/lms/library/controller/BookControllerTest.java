@@ -118,4 +118,20 @@ public class BookControllerTest {
 		
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
 	}
+	
+	@Test
+	public void testFindByCategory() throws Exception {
+		RequestBuilder req = get("/book/findByCategory/FAN");
+		
+		List<Book> testList = new ArrayList<>();
+		Book testBook = new Book(1, "The Hobbit", "Tolkien", "J.R.R.", "978-0-261102-21-7", "FAN");
+		testList.add(testBook);
+		String testListAsJson = this.mapper.writeValueAsString(testList);
+		
+		ResultMatcher checkStatus = status().isOk();
+		ResultMatcher checkBody = content().json(testListAsJson);
+		
+		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
 }
