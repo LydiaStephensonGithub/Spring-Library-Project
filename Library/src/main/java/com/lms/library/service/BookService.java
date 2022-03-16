@@ -61,4 +61,8 @@ public class BookService implements ServiceMethods<Book> {
 	public Long countByIsbn(String iSBN) {
 		return this.repo.countByiSBN(iSBN);
 	}
+	
+	public long count() {
+		return this.repo.count();
+	}
 }

@@ -144,4 +144,14 @@ public class BookControllerTest {
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
 	}
 	
+	@Test
+	public void testCount() throws Exception {
+		RequestBuilder req = get("/book/count");
+		
+		ResultMatcher checkStatus = status().isOk();
+		ResultMatcher checkBody = content().json("1");
+		
+		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
 }
