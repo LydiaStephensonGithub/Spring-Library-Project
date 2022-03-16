@@ -50,4 +50,9 @@ public class BookController {
 	public ResponseEntity<Boolean> delete(@PathVariable long id) {
 		return new ResponseEntity<Boolean>(this.service.delete(id), HttpStatus.NO_CONTENT);
 	}
+	
+	@GetMapping("/findByAuthor/{lastName}")
+	public ResponseEntity<List<Book>> findByAuthor(@PathVariable String lastName) {
+		return new ResponseEntity<List<Book>>(this.service.findByAuthor(lastName), HttpStatus.OK);
+	}
 }
