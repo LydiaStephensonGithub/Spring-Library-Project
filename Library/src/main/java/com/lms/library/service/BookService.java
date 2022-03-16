@@ -53,4 +53,8 @@ public class BookService implements ServiceMethods<Book> {
 	public List<Book> findByAuthor(String lastName) {
 		return this.repo.findByAuthor(lastName);
 	}
+	
+	public List<Book> findByCategory(String category) {
+		return this.repo.findByCategory(category);
+	}
 }

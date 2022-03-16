@@ -105,7 +105,8 @@ public class BookServiceTest {
 		Mockito.verify(this.repo, Mockito.times(1)).existsById(Mockito.anyLong());
 	}
 	
-	@Test public void findByAuthorTest() {
+	@Test 
+	public void findByAuthorTest() {
 		List<Book> outputList = new ArrayList<>();
 		Book output = new Book(1L, "The Hobbit", "Tolkien", "J.R.R.", "978-0-261102-21-7", "FAN");
 		outputList.add(output);
@@ -116,4 +117,18 @@ public class BookServiceTest {
 		
 		Mockito.verify(this.repo, Mockito.times(1)).findByAuthor("Tolkien");
 	}
+	
+	@Test
+	public void findByCategory() {
+		List<Book> outputList = new ArrayList<>();
+		Book output = new Book(1L, "The Hobbit", "Tolkien", "J.R.R.", "978-0-261102-21-7", "FAN");
+		outputList.add(output);
+		
+		Mockito.when(this.repo.findByCategory("FAN")).thenReturn(outputList);
+		
+		assertEquals(outputList, this.service.findByCategory("FAN"));
+		
+		Mockito.verify(this.repo, Mockito.times(1)).findByCategory("FAN");
+	}
+	
 }

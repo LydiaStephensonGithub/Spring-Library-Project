@@ -15,4 +15,7 @@ public interface BookRepo extends JpaRepository<Book, Long> {
 	@Query(value = "SELECT * FROM book WHERE last_name = ?1 ORDER BY title", nativeQuery = true)
 	List<Book> findByAuthor(String lastName);
 	
+	//query to find all the books in the same category
+	@Query(value = "SELECT * FROM book WHERE category = ?1 ORDER BY title", nativeQuery = true)
+	List<Book> findByCategory(String category);
 }
