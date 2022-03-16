@@ -57,4 +57,8 @@ public class BookService implements ServiceMethods<Book> {
 	public List<Book> findByCategory(String category) {
 		return this.repo.findByCategory(category);
 	}
+	
+	public Long countByIsbn(String iSBN) {
+		return this.repo.countByiSBN(iSBN);
+	}
 }

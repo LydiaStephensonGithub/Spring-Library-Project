@@ -119,7 +119,7 @@ public class BookServiceTest {
 	}
 	
 	@Test
-	public void findByCategory() {
+	public void findByCategoryTest() {
 		List<Book> outputList = new ArrayList<>();
 		Book output = new Book(1L, "The Hobbit", "Tolkien", "J.R.R.", "978-0-261102-21-7", "FAN");
 		outputList.add(output);
@@ -129,6 +129,19 @@ public class BookServiceTest {
 		assertEquals(outputList, this.service.findByCategory("FAN"));
 		
 		Mockito.verify(this.repo, Mockito.times(1)).findByCategory("FAN");
+	}
+	
+	@Test
+	public void countByIsbnTest() {
+		List<Book> outputList = new ArrayList<>();
+		Book output = new Book(1L, "The Hobbit", "Tolkien", "J.R.R.", "978-0-261102-21-7", "FAN");
+		outputList.add(output);
+		
+		Mockito.when(this.repo.findByCategory("978-0-261102-21-7")).thenReturn(outputList);
+		
+		assertEquals(outputList, this.service.findByCategory("978-0-261102-21-7"));
+		
+		Mockito.verify(this.repo, Mockito.times(1)).findByCategory("978-0-261102-21-7");
 	}
 	
 }
