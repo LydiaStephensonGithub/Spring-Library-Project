@@ -12,7 +12,7 @@ import com.lms.library.entity.Book;
 public interface BookRepo extends JpaRepository<Book, Long> {
 	
 	//query to search for an author by last name and return all of their books written
-	@Query(value = "SELECT * FROM book WHERE last_name = ?1 ORDER BY title", nativeQuery = true)
+	@Query(value = "SELECT * FROM book WHERE last_name = ?1 ORDER BY first_name", nativeQuery = true)
 	List<Book> findByAuthor(String lastName);
 	
 	//query to find all the books in the same category
