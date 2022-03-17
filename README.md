@@ -47,3 +47,5 @@ I was also expecting to struggle a little with using Git, particularly when it c
 - A seperate table that uses the book_id and the library_card number as foreign keys in order to show a user's loan history.
 
 - The ability to see when a book is due back to the Library.
+
+## Link to [Jira Board](https://lydiamariastephenson.atlassian.net/jira/software/projects/SLP/boards/6/roadmap)
