@@ -35,3 +35,15 @@ I was also expecting to struggle a little with using Git, particularly when it c
 - Struggled a little with the delete method, regarding the best way to do and get get full coverage during testing.
 
 - Struggled a little with the final merge into main as gitbash seemed to register a change with the BookRepo class that I was not aware of. I managed to fix it by merging the dev into main again but was frustrated with struggling at the final merge as I had been getting used to the process throughout the project.
+
+## Possible improvements for future revisions of the project
+
+- The ability to see which books are on loan and which books are in the library.
+
+- Separate entities for other things the library might loan out (e.g. films, audiobooks etc).
+
+- A seperate table that stores the details about all the Library's users (name, age, email, library card number)
+
+- A seperate table that uses the book_id and the library_card number as foreign keys in order to show a user's loan history.
+
+- The ability to see when a book is due back to the Library.
