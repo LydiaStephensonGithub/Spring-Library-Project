@@ -15,3 +15,23 @@ In the beginning of the challenge I expected to be able to completed the basic C
 I found the planning process more useful that expected as it ultimately sped up the production process. Although I found assigning story points a little difficult without having other people working on the project to discuss it with. 
 
 I was also expecting to struggle a little with using Git, particularly when it comes to merging branches as this will be the first time using the feature branch model for a project.
+
+## What went well? / What didn't go as planned?
+### What went well?
+- It took a little while to get used to the feature branch model but eventually made the project easier as it enabled a feature to be fully completed and tested before moving onto the next.
+
+- Seperating the project into features and testing along the way meant that completing the first query was slow but I had figured out most bug and code errors by the time it came to completing the others.
+
+- Was able to implement custom queries and complete the teting for them without much difficulty.
+
+- Implemented a custom exception for the read by id and update query that would return if there was no entity matching that ID number.
+
+### What didn't go as planned?
+
+- Didn't intially consider that need for a library to sort authors by last name so had to change the field for name from full_name to two seperate fields for first and last name.
+
+- Didn't have time to refactor any query that returns a list to show a message that nothing has been found when an empty list is returned.
+
+- Struggled a little with the delete method, regarding the best way to do and get get full coverage during testing.
+
+- Struggled a little with the final merge into main as gitbash seemed to register a change with the BookRepo class that I was not aware of. I managed to fix it by merging the dev into main again but was frustrated with struggling at the final merge as I had been getting used to the process throughout the project.
