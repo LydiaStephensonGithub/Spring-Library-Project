@@ -48,4 +48,36 @@ I was also expecting to struggle a little with using Git, particularly when it c
 
 - The ability to see when a book is due back to the Library.
 
+## Screenshots showing your postman requests and the output from the API
+
+### [Create](https://github.com/LydiaStephensonGithub/Spring-Library-Project/blob/main/Documentation/Screenshots/Create.pdf)
+
+### [Read by ID](https://github.com/LydiaStephensonGithub/Spring-Library-Project/blob/main/Documentation/Screenshots/Read%20By%20Id.pdf)
+
+### [Read All](https://github.com/LydiaStephensonGithub/Spring-Library-Project/blob/main/Documentation/Screenshots/Read%20All.pdf)
+
+### [Update](https://github.com/LydiaStephensonGithub/Spring-Library-Project/blob/main/Documentation/Screenshots/Update.pdf)
+
+### [Delete](https://github.com/LydiaStephensonGithub/Spring-Library-Project/blob/main/Documentation/Screenshots/Delete.pdf)
+
+### [Find By Author](https://github.com/LydiaStephensonGithub/Spring-Library-Project/blob/main/Documentation/Screenshots/Find%20By%20Author.pdf)
+
+### [Find By Category](https://github.com/LydiaStephensonGithub/Spring-Library-Project/blob/main/Documentation/Screenshots/Find%20By%20Category.pdf)
+
+### [Count by ISBN](https://github.com/LydiaStephensonGithub/Spring-Library-Project/blob/main/Documentation/Screenshots/Count%20By%20ISBN.pdf)
+
+### [Count](https://github.com/LydiaStephensonGithub/Spring-Library-Project/blob/main/Documentation/Screenshots/Count.pdf)
+
+### [Custom Exception - Book Not Found](https://github.com/LydiaStephensonGithub/Spring-Library-Project/blob/main/Documentation/Screenshots/Custom%20Exception.pdf)
+
+## Screenshots of your database to prove that data is being persisted
+
+### [MySQL](https://github.com/LydiaStephensonGithub/Spring-Library-Project/blob/main/Documentation/Screenshots/MySQL.pdf)
+
+### [H2](https://github.com/LydiaStephensonGithub/Spring-Library-Project/blob/main/Documentation/Screenshots/H2.pdf)
+
+## Screenshot of your test results, including coverage report
+
+### [Test Results and Coverage Report](https://github.com/LydiaStephensonGithub/Spring-Library-Project/blob/main/Documentation/Screenshots/Coverage%20Report.pdf)
+
 ## Link to [Jira Board](https://lydiamariastephenson.atlassian.net/jira/software/projects/SLP/boards/6/roadmap)
